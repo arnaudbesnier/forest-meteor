@@ -1,6 +1,6 @@
 # Forest Meteor Liana
 
-The unofficial MeteorJS liana for Forest.
+The unofficial MeteorJS liana for Forest (http://www.forestadmin.com).
 
 ## Requirements
 
