@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'forest-meteor',
+  name: 'arnaudbesnier:forest',
   version: '0.0.1',
   summary: 'Meteor liana for Forest',
   git: 'https://github.com/arnaudbesnier/forest-meteor',
@@ -22,13 +22,13 @@ Package.onUse(function(api) {
   api.addFiles('services/resource-remover.js', 'server');
   api.addFiles('services/resource-updater.js', 'server');
   api.addFiles('utils/CORS.js', 'server');
-  api.mainModule('forest-meteor.js', 'server');
+  api.mainModule('forest.js', 'server');
 });
 
 Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
   api.use('iron:router@1.0.12', 'server');
-  api.use('forest-meteor');
-  api.mainModule('forest-meteor-tests.js', 'server');
+  api.use('arnaudbesnier:forest');
+  api.mainModule('forest-tests.js', 'server');
 });
