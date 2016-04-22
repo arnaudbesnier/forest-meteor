@@ -1,7 +1,15 @@
 _ = Npm.require('underscore');
 
 Meteor.startup(() => {
-  ForestAdmin.apiMapsGetter();
+  if (Meteor.settings && Meteor.settings.private && Meteor.settings.private.forest
+    && Meteor.settings.private.forest.secretKey) {
+    ForestAdmin.apiMapsGetter();
+  } else {
+    console.error('Forest cannot find your project secret key. ' +
+          'Please, ensure you have properly set the secret key in your ' +
+          'settings.json file.');
+    return;
+  }
 
   _.each(ForestAdmin.collections, (collection) => {
     Router.route('/forest/' + collection.name, { where: 'server' })
