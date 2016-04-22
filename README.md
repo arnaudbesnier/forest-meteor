@@ -5,6 +5,8 @@ The unofficial MeteorJS liana for Forest.
 ## Requirements
 
 This package works in a specific configuration. Your Meteor project must:
+
+- Use Meteor 1.3+
 - Use the `aldeed:simple-schema` Meteor package (https://github.com/aldeed/meteor-simple-schema)
 - Define a schema for each collection you want to see in ForestAdmin
 - Store your collections schemas in the global variable `Meteor.Schemas` as described below:
