@@ -50,6 +50,7 @@ The package provide only a fraction of the features provide by ForestAdmin but y
 - Implement the documents filters,
 - Implement activity logging,
 - Implement stats to populate the dashboard,
+- Implement custom actions,
 - Implement the authentication system,
 - Implement third-party integrations (Intercom, Stripe,... ),
 - Add specs in the future.
