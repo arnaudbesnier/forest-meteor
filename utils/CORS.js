@@ -19,7 +19,10 @@ Meteor.startup(() => {
       'X-Requested-With',
       'Origin'
     ].join(', '));
-    response.setHeader('Access-Control-Allow-Methods', ['PUT', 'DELETE']);
+    response.setHeader('Access-Control-Allow-Methods', [
+      'PUT',
+      'DELETE'
+    ].join(', '));
     return next();
   });
 });
