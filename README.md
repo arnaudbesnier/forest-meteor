@@ -20,7 +20,7 @@ Meteor.Schemas.Rentals = new SimpleSchema({
 
 ## Installation
 
-1. Run `meteor add forest-meteor` in your Meteor project.
+1. Run `meteor add arnaudbesnier:forest` in your Meteor project.
 2. Add the following configuration in your settings.json file
 ```json
 {
