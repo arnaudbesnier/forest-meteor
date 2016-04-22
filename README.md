@@ -24,14 +24,11 @@ Meteor.Schemas.Rentals = new SimpleSchema({
 2. Add the following configuration in your settings.json file
 ```json
 {
-  "public": {
-    // your public configuration
-  },
+  "public": {},
   "private": {
     "forest": {
       "secretKey": "<FORESTADMIN_SECRET_KEY>"
     }
-    // your private configuration
   }
 }
 ```
