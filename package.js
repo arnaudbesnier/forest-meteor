@@ -1,6 +1,6 @@
 Package.describe({
   name: 'arnaudbesnier:forest',
-  version: '0.0.2',
+  version: '0.0.3',
   summary: 'Meteor liana for Forest',
   git: 'https://github.com/arnaudbesnier/forest-meteor',
   documentation: 'README.md'
