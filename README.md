@@ -8,7 +8,7 @@ This package work in a specific configuration. Your Meteor project must:
 - Use the aldeed:simple-schema Meteor package (https://github.com/aldeed/meteor-simple-schema)
 - Define a schema for each collection you want to see in ForestAdmin
 - Store your collections schemas in the global variable `Meteor.Schemas` as described below:
-```
+```javascript
 Meteor.Schemas = {};
 Meteor.Schemas.Rentals = new SimpleSchema({
   city: {
@@ -22,7 +22,7 @@ Meteor.Schemas.Rentals = new SimpleSchema({
 
 1. Run `meteor add forest-meteor` in your Meteor project.
 2. Add the following configuration in your settings.json file
-```
+```json
 {
   "public": {
     // your public configuration
