@@ -47,18 +47,19 @@ ForestAdmin.resourcesGetter = (collection, query) => {
   function getSearch() {
     let search = {};
 
-    _.each(ForestAdmin.collections[collection].fields, (field) => {
-      console.log(field);
-      if (field.type === 'String') {
-        if (!search.$or) {
-          search.$or = [];
+    if (query.search) {
+      _.each(ForestAdmin.collections[collection].fields, (field) => {
+        if (field.type === 'String') {
+          if (!search.$or) {
+            search.$or = [];
+          }
+          let condition = {};
+          let fieldName = field.field === 'id' ? '_id' : field.field;
+          condition[fieldName] = new RegExp(query.search, 'i');
+          search.$or.push(condition);
         }
-        let condition = {};
-        let fieldName = field.field === 'id' ? '_id' : field.field;
-        condition[fieldName] = new RegExp(query.search, 'i');
-        search.$or.push(condition);
-      }
-    });
+      });
+    }
 
     return search;
   }
