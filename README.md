@@ -1,6 +1,6 @@
 # Forest Meteor Liana
 
-The unofficial MeteorJS liana for Forest (http://www.forestadmin.com).
+The unofficial MeteorJS liana for <a href="http://www.forestadmin.com" target="_blank">Forest</a>
 
 ## Requirements
 
@@ -23,7 +23,7 @@ Meteor.Schemas.Rentals = new SimpleSchema({
 ## Installation
 
 1. Run `meteor add arnaudbesnier:forest` in your Meteor project.
-2. Add the following configuration in your settings.json file
+2. Add the following configuration in your settings.json file:
 ```json
 {
   "public": {},
@@ -37,7 +37,7 @@ Meteor.Schemas.Rentals = new SimpleSchema({
 
 ## Limitations
 
-The package provide only a fraction of the features provide by ForestAdmin but your can:
+The package provide only a fraction of the features provide by Forest Admin but your can:
 
 - Create documents,
 - Read documents (with sort and pagination),
