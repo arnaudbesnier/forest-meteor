@@ -1,6 +1,5 @@
 JSONAPISerializer = Npm.require('jsonapi-serializer').Serializer;
 request = Npm.require('superagent');
-_ = Npm.require('underscore');
 
 function sendAPIMaps(apiMaps) {
   const forestUrl = 'https://forestadmin-server.herokuapp.com';

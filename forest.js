@@ -1,5 +1,3 @@
-_ = Npm.require('underscore');
-
 Meteor.startup(() => {
   if (Meteor.settings && Meteor.settings.private && Meteor.settings.private.forest
     && Meteor.settings.private.forest.secretKey) {

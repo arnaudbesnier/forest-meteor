@@ -8,8 +8,7 @@ Package.describe({
 
 Npm.depends({
   "jsonapi-serializer": "3.0.2",
-  "superagent": "2.0.0-alpha.1",
-  "underscore": "1.8.3"
+  "superagent": "2.0.0-alpha.1"
 });
 
 Package.onUse(function(api) {

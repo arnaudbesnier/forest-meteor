@@ -1,5 +1,4 @@
 JSONAPISerializer = Npm.require('jsonapi-serializer').Serializer;
-_ = Npm.require('underscore');
 
 ForestAdmin.resourcesGetter = (collection, query) => {
 
