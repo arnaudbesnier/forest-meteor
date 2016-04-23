@@ -44,7 +44,26 @@ ForestAdmin.resourcesGetter = (collection, query) => {
     return options;
   }
 
-  const cursor = Meteor[collection].find({}, getFilter());
+  function getSearch() {
+    let search = {};
+
+    _.each(ForestAdmin.collections[collection].fields, (field) => {
+      console.log(field);
+      if (field.type === 'String') {
+        if (!search.$or) {
+          search.$or = [];
+        }
+        let condition = {};
+        let fieldName = field.field === 'id' ? '_id' : field.field;
+        condition[fieldName] = new RegExp(query.search, 'i');
+        search.$or.push(condition);
+      }
+    });
+
+    return search;
+  }
+
+  const cursor = Meteor[collection].find(getSearch(), getFilter());
   const attributes = _.pluck(ForestAdmin.collections[collection].fields, 'field');
 
   var serializationOptions = {
