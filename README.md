@@ -52,7 +52,6 @@ The search feature is also implemented, you can:
 ## TODO
 
 - Set the documents ids in a "read-only" mode,
-- Handle Array types,
 - Implement activity logging,
 - Implement stats to populate the dashboard,
 - Implement custom actions,
