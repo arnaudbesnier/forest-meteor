@@ -26,21 +26,32 @@ ForestAdmin.apiMapsGetter = () => {
     const collectionName = key.toLowerCase();
     let schema = { name: collectionName, fields: [{ field: 'id', type: 'String' }] }
 
-    _.each(value._schema, (value, key) => {
+    _.each(value._schema, (fieldInfo, fieldName) => {
       let type;
 
-      if (typeof value.type === 'function') {
-        let match = value.type.toString().match(/function\s*(\w*)\(/);
+      function detectType(fieldInfo) {
+        let match = fieldInfo.type.toString().match(/function\s*(\w*)\(/);
         if (match) {
-          type = match[1];
+          return match[1] === 'Array' ? [] : match[1];
         }
-      } else {
-        type = value.type;
+        return null;
       }
 
-      // TODO: Handle Array types
-      if (key.indexOf('$') === -1) {
-        schema.fields.push({ field: key, type: type })
+      if (typeof fieldInfo.type === 'function') {
+        type = detectType(fieldInfo);
+      } else {
+        type = fieldInfo.type === 'Array' ? [] : fieldInfo.type;
+      }
+
+      // NOTICE: Detect Array values type
+      if (typeof type === 'object') {
+        if (value._schema[fieldName + '.$']) {
+          type.push(detectType(value._schema[fieldName + '.$']));
+        }
+      }
+
+      if (fieldName.indexOf('$') === -1) {
+        schema.fields.push({ field: fieldName, type: type })
       }
     });
 
