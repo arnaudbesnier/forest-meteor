@@ -9,8 +9,12 @@ Meteor.startup(() => {
     return;
   }
 
+  let ForestRouter = new Iron.Router;
+  ForestRouter.onBeforeAction(Iron.Router.bodyParser.json());
+  ForestRouter.onBeforeAction(Iron.Router.bodyParser.urlencoded({extended: false}));
+
   _.each(ForestAdmin.collections, (collection) => {
-    Router.route('/forest/' + collection.name, { where: 'server' })
+    ForestRouter.route('/forest/' + collection.name, { where: 'server' })
       .get(function() {
         var json = ForestAdmin.resourcesGetter(collection.name, this.params.query);
         this.response.end(JSON.stringify(json));
@@ -25,7 +29,7 @@ Meteor.startup(() => {
         this.response.end();
       });
 
-    Router.route('/forest/' + collection.name + '/:recordId', { where: 'server' })
+    ForestRouter.route('/forest/' + collection.name + '/:recordId', { where: 'server' })
       .put(function() {
         const data = this.request.body.data;
 
