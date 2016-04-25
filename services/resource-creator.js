@@ -1,3 +1,3 @@
-ForestAdmin.resourceCreator = (collection, attributes) => {
-  Meteor[collection].insert(attributes);
+ForestAdmin.resourceCreator = (collection, attributes, callback) => {
+  Meteor[collection].insert(attributes, callback);
 }

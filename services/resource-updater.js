@@ -1,3 +1,3 @@
-ForestAdmin.resourceUpdater = (collection, recordId, attributes) => {
-  Meteor[collection].update(recordId, {$set: attributes});
+ForestAdmin.resourceUpdater = (collection, recordId, attributes, callback) => {
+  Meteor[collection].update(recordId, {$set: attributes}, callback);
 }

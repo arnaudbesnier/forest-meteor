@@ -21,30 +21,28 @@ Meteor.startup(() => {
       })
       .post(function() {
         const data = this.request.body.data;
-
-        // TODO: Add onSuccess & onError callbacks to send the right response to Forest
-        ForestAdmin.resourceCreator(collection.name, data.attributes);
-
-        this.response.writeHead(204);
-        this.response.end();
+        ForestAdmin.resourceCreator(collection.name, data.attributes,
+          (error) => {
+            this.response.writeHead(error ? 500 : 204);
+            this.response.end();
+        });
       });
 
     ForestRouter.route('/forest/' + collection.name + '/:recordId', { where: 'server' })
       .put(function() {
         const data = this.request.body.data;
-
-        // TODO: Add onSuccess & onError callbacks to send the right response to Forest
-        ForestAdmin.resourceUpdater(collection.name, data.id, data.attributes);
-
-        this.response.writeHead(204);
-        this.response.end();
+        ForestAdmin.resourceUpdater(collection.name, data.id, data.attributes,
+          (error) => {
+            this.response.writeHead(error ? 500 : 204);
+            this.response.end();
+        });
       })
       .delete(function() {
-        // TODO: Add onSuccess & onError callbacks to send the right response to Forest
-        ForestAdmin.resourceRemover(collection.name, this.params.recordId);
-
-        this.response.writeHead(204);
-        this.response.end();
+        ForestAdmin.resourceRemover(collection.name, this.params.recordId,
+          (error) => {
+            this.response.writeHead(error ? 500 : 204);
+            this.response.end();
+        });
       });
   });
 

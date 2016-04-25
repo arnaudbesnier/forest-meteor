@@ -1,3 +1,3 @@
-ForestAdmin.resourceRemover = (collection, recordId) => {
-  Meteor[collection].remove(recordId);
+ForestAdmin.resourceRemover = (collection, recordId, callback) => {
+  Meteor[collection].remove(recordId, callback);
 }
