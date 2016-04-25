@@ -44,12 +44,14 @@ The package provide only a fraction of the features provide by Forest Admin but 
 - Update documents,
 - Delete documents
 
-The search feature is also implemented: it enables you to look for any record containing the searched string.
+The search feature is also implemented, you can:
+
+- Search for any record containing the a string
+- Use specific record filters (is, is not, greater than, less than, is present, is blank, ...)
 
 ## TODO
 
 - Set the documents ids in a "read-only" mode,
-- Implement the specific documents filters,
 - Handle Array types,
 - Implement activity logging,
 - Implement stats to populate the dashboard,
