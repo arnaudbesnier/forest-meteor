@@ -47,6 +47,7 @@ ForestAdmin.resourcesGetter = (collection, query) => {
   function getSearch() {
     let search = {};
 
+    // NOTICE: String search case
     if (query.search) {
       _.each(ForestAdmin.collections[collection].fields, (field) => {
         if (field.type === 'String') {
@@ -60,6 +61,11 @@ ForestAdmin.resourcesGetter = (collection, query) => {
         }
       });
     }
+
+    // NOTICE: Sharp searches case
+    _.each(query, (value, filterName) => {
+      retrieveFilters(search, collection, filterName, value);
+    });
 
     return search;
   }
