@@ -23,8 +23,8 @@ Meteor.startup(() => {
         const data = this.request.body.data;
         ForestAdmin.resourceCreator(collection.name, data.attributes,
           (error) => {
-            this.response.writeHead(error ? 500 : 204);
-            this.response.end();
+            this.response.writeHead(error ? 400 : 200);
+            this.response.end(); // TODO: Display an error message if Forest enables it
         });
       });
 
@@ -33,15 +33,15 @@ Meteor.startup(() => {
         const data = this.request.body.data;
         ForestAdmin.resourceUpdater(collection.name, data.id, data.attributes,
           (error) => {
-            this.response.writeHead(error ? 500 : 204);
-            this.response.end();
+            this.response.writeHead(error ? 400 : 204);
+            this.response.end(); // TODO: Display an error message if Forest enables it
         });
       })
       .delete(function() {
         ForestAdmin.resourceRemover(collection.name, this.params.recordId,
           (error) => {
-            this.response.writeHead(error ? 500 : 204);
-            this.response.end();
+            this.response.writeHead(error ? 400 : 204);
+            this.response.end(); // TODO: Display an error message if Forest enables it
         });
       });
   });
